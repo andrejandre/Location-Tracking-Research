@@ -25,3 +25,5 @@ Update:
 - the trajectories produced by this isolated interval isn't succesful in showcasing movement as expected on the track
 - the z axes have been zeroed out since we are mainly interested in x and y
 - the x velocity has a behaviour as expected in most tests, but does not seem to be great enough to generate trajectories
+- THE LOWPASS FILTER HAS BEEN REMOVED
+    - the lowpass filter was preventing the expected behavior in velocity being shown, the filter has been deprecated and commented out for potential use later if necessary
