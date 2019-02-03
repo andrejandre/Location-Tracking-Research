@@ -27,3 +27,27 @@ Update:
 - the x velocity has a behaviour as expected in most tests, but does not seem to be great enough to generate trajectories
 - THE LOWPASS FILTER HAS BEEN REMOVED
     - the lowpass filter was preventing the expected behavior in velocity being shown, the filter has been deprecated and commented out for potential use later if necessary
+    
+# Feb 2 2019
+
+One more stationary test was conducted and the results show that drift occurs over time. This allows us to determine how long we are willing to utilize the accelerometer before resetting it with GPS data as we go forward. In addition, the test ran last week in the -X direction produced quality data, and so that was processed again today without a lowpass filter and the Z axis was zeroed as well. This showed that we had a small portion in time where acceleration was as expected, however the output in trajectory is confusing as it shows that no motion occured. Acceleration and velocity seem to behave as expected, but not the location trajectory.
+
+- Stationary test velocity drift
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+- Stationary test trajectory drift
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+- -X direction test acceleration
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+- -X direction test velocity
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+- -X direction test trajectory
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+To Review:
+- the integration performed in the algorithm
+- more newtonian tests with different masses (to test for accelerometer sensitivity)
+- come up with simple kalman filter examples
