@@ -33,10 +33,10 @@ Update:
 One more stationary test was conducted and the results show that drift occurs over time. This allows us to determine how long we are willing to utilize the accelerometer before resetting it with GPS data as we go forward. In addition, the test ran last week in the -X direction produced quality data, and so that was processed again today without a lowpass filter and the Z axis was zeroed as well. This showed that we had a small portion in time where acceleration was as expected, however the output in trajectory is confusing as it shows that no motion occured. Acceleration and velocity seem to behave as expected, but not the location trajectory.
 
 - Stationary test velocity drift
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%202%202019%20Data/Semester%202%20Stationary%20Test1%20Velocity.PNG)
 
 - Stationary test trajectory drift
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%202%202019%20Data/Semester%202%20Stationary%20Test1%20Trajectory.PNG)
 
 - -X direction test acceleration
 ![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
