@@ -39,13 +39,13 @@ One more stationary test was conducted and the results show that drift occurs ov
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%202%202019%20Data/Semester%202%20Stationary%20Test1%20Trajectory.PNG)
 
 - -X direction test acceleration
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%202%202019%20Data/Semester%202%20-X%20Test%20X%20Acceleration.PNG)
 
 - -X direction test velocity
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%202%202019%20Data/Semester%202%20-X%20Test%20Velocities.PNG)
 
 - -X direction test trajectory
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%202%202019%20Data/Semester%202%20-X%20Test%20Trajectory.PNG)
 
 To Review:
 - the integration performed in the algorithm
