@@ -59,6 +59,24 @@ To Review:
 
 # Feb 5 2019
 
+Since the group could not meet in the lab today, I ran a quick test with the accelerometer at home. The goal was to try and prove that the device and algorithm could produce a result that showed the device moved in the +X direction as seen in reality. I swung the accelerometer approximately 0.5m (by eyeballing) in the +X direction while trying to minimize movement in Y and Z. The tests showed an initial +-2G spike, and then a realistic 2s interval where 0-0.5G forces were detected. The whole dataset was pumped through the algorithm and the trajectory showed a total movement in +X by about 0.5m. There was some movement in Y and Z, which was later ignored by setting the Y and Z axes to zero, and also slicing down to the interval in time where relevant motion occured. After, the location trajectory produced seemed accurate and showed that I moved the device by ~0.5m by swinging my arm. This confirms that it is possible that our newtonian setup isn't configured to succesfully collect data from the device for a number of hypotheses. Some of these are:
+
+1. Is our track too short?
+2. Do we have too much mass attached to the cart?
+3. Are we recording for too short a period?
+4. Is the device not sensitive enough for our test?
+
+Some considerations for future testing:
+- slow down the cart by adding mass to the cart, or reducing the mass on the string
+- increase the length of the track
+- collect video footage of the test and setup to study when comparing to signals of gravitational force
+
+Below are results pertaining to the test proving truthful location tracking:
+
+- Velocity of edited data:
+
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%205%202019%20Data/velocity%20of%20sliced%20data.png)
+
+- Trajectory of edited data:
 
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%205%202019%20Data/location%20trajectory%20of%20sliced%20data.png)
