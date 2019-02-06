@@ -53,3 +53,7 @@ To Review:
 - come up with simple kalman filter examples https://filterpy.readthedocs.io/en/latest/kalman/KalmanFilter.html https://pykalman.github.io/ https://www.mathworks.com/help/control/ug/kalman-filtering.html
 
 # Feb 5 2019
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%202%202019%20Data/Semester%202%20Stationary%20Test1%20Trajectory.PNG)
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%202%202019%20Data/Semester%202%20Stationary%20Test1%20Trajectory.PNG)
