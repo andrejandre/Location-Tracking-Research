@@ -2,6 +2,10 @@
 
 # Getting started
 
+This research project is focused on 3-axis data produced from a MetaMotionR device to explore the capabilities of accelerometer hardware. The motive for this research is to implement a data fusion application using 3-axis GPS data to couple together into a predictive Kalman filter. The device can be found at https://mbientlab.com/metamotionr/.
+
+
+
 The best tool to do heavy data analytics and processing is Anaconda's Spyder. Please refer to https://www.anaconda.com/ for installing an anaconda distribution, or a miniconda distribution. It is a great package manager that comes with Spyder and comes prepackaged with many scientific, data science, and machine-learning libraries. It also comes with a powerful variable exploration utility.
 
 In order to begin analysis with python on 3-axis acceleration data, the following libraries were used:
