@@ -44,6 +44,31 @@ Questions:
 - should we remove the filter and run the analyzer without any filters? will this be more accurate?
 - should we write our own filter? is a windowing average all we need?
 
+The butterworth filter in question is:
+
+    # Setting up Butterworth lowpass filter (windowing average function)
+    N = 2 # Filter order
+    Wn = 0.4 # Cutoff frequency 0 < Wn < 1
+    B, A = signal.butter(N, Wn, output = "ba")
+
+    # Apply filter and plot X signal
+    xMean = []
+    for i in range(len(xAcc_)):
+        xMean.append(np.mean(xAcc_))
+    xAcc_ = signal.filtfilt(B, A, xAcc_)
+    plt.figure(figsize = (10, 6))
+    plt.plot(time, xAcc_, label = "smooth", linewidth = 2.25)
+    plt.plot(time, xAcc, label = "raw", linewidth = 1.5, alpha = 0.5, color = "r")
+    plt.plot(time, xMean, label = "avg offset", linewidth = 2, color = "black")
+    plt.legend(loc = "upper left")
+    plt.grid()
+    plt.xlabel("Time (s)")
+    plt.ylabel("Acceleration (g)")
+    plt.title("Denoised X Acceleration")
+    plt.show()
+
+The same routine can be used for the Y and Z axis signals.
+
 # Feb 1 2019
 
 We determined that we need to zoom in on the data where our accelerometer is actually undergoing newtonian motion in our setup. A lot of our datasets from Jan 29, 2019 showcase what happened in acceleration over a very long time interval. We need to cut out the 0.5s window of time where the action happened and apply our signal processing exactly to that section of data. This will require manipulating our algorithm and slicing up the raw data to generate the analytics we are after.
