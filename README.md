@@ -80,3 +80,42 @@ Below are results pertaining to the test proving truthful location tracking:
 - Trajectory of edited data:
 
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%205%202019%20Data/location%20trajectory%20of%20sliced%20data.png)
+
+# Feb 7 2019
+
+Seven tests were conducted today to collect more data for processing and analysis. The goal was to produce data under a controlled newtonian setup to prove truthful location tracking, as opposed to moving the device in my hand arbitrarily. Unfortunately, the data collected was not conclusive since there were no observable constant forces or sensible velocities derived from any of the datasets. In addition, the tests were slowed down by adding a 40g mass to the cart in most of the tests and this still did not result in analytics that make sense. 
+
+One test in the positive X direction, with a 40g mass attached to the cart was inspected further. I zoomed sliced the dataset down to the time interval of interest and zeroed out the z-axis. It showed that the device moved less than 20cm, which does not makes sense since the track is 140cm in length. This means that we are still relying on the data generated from the movement of my arm on Feb 5 2019 (see above). 
+
+These findings lead to two possibilities:
+    1. the newtonian setup is still not optimized to collect controlled data 
+    2. the device produces error so quickly that we only achieve about 10-20cm of accurate location tracking
+        - if this is true, then we can continue to develop a new script that will fuse GPS data in a kalman filter. However, this conclusion is a hypothesis and will require further investigation to prove
+
+To be thorough, below are a few screenshots highlighting the data that was edited and sliced for further inspection (positive X direction test with 40g mass on the cart to slow it down):
+
+- Original accelerations:
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%207%202019%20Data/original%20accelerations.png)
+
+- Original velocities:
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%207%202019%20Data/original%20velocities.png)
+
+- Original trajectory:
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%207%202019%20Data/original%20trajectory.png)
+
+- Sliced interval X Acceleration:
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%207%202019%20Data/sliced%20interval%20x%20acceleration.png)
+
+- Sliced interval velocities:
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%207%202019%20Data/sliced%20interval%20velocities.png)
+
+- Sliced interval trajectory:
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%207%202019%20Data/sliced%20interval%20trajectory.png)
+
+
