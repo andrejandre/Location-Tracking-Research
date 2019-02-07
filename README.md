@@ -88,7 +88,9 @@ Seven tests were conducted today to collect more data for processing and analysi
 One test in the positive X direction, with a 40g mass attached to the cart was inspected further. I zoomed sliced the dataset down to the time interval of interest and zeroed out the z-axis. It showed that the device moved less than 20cm, which does not makes sense since the track is 140cm in length. This means that we are still relying on the data generated from the movement of my arm on Feb 5 2019 (see above). 
 
 These findings lead to two possibilities:
+
     1. the newtonian setup is still not optimized to collect controlled data 
+    
     2. the device produces error so quickly that we only achieve about 10-20cm of accurate location tracking
         - if this is true, then we can continue to develop a new script that will fuse GPS data in a kalman filter. However, this conclusion is a hypothesis and will require further investigation to prove
 
