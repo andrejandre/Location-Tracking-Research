@@ -2,6 +2,8 @@
 
 # Getting started
 
+The best tool to do heavy data analytics and processing is Anaconda's Spyder. Please refer to https://www.anaconda.com/ for installing an anaconda distribution, or a miniconda distribution. It is a great package manager that comes with Spyder and comes prepackaged with many scientific, data science, and machine-learning libraries. It also comes with a powerful variable exploration utility.
+
 In order to begin analysis with python on 3-axis acceleration data, the following libraries were used:
 
     # Necessary libraries with subroutines and functions
