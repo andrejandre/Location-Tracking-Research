@@ -175,4 +175,8 @@ To be thorough, below are a few screenshots highlighting the data that was edite
 
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%207%202019%20Data/sliced%20interval%20trajectory.png)
 
+# Feb 13 2019
 
+It was determined in the latest meeting that the newtonian setup in lab is not optimal for data collection with the accelerometer, and that the test conducted on Feb 5 is enough proof that the device and algorithm are ready for new milestones.
+
+Our tests today involve walking in a straight line outdoors, accounting for X and Y axes data and zeroing out Z. We are attaching the accelerometer to a mobile device to log GPS and acceleration data simultaneously. 
