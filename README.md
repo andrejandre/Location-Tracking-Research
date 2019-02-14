@@ -206,17 +206,17 @@ Finally, it should be noted that the location in which this test was conducted w
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20map%20-%20work%20in%20progress.png)
 
 Considerations for the next week:
-    - Should we filter the data in X or Y, or both?
+- Should we filter the data in X or Y, or both?
     - Are we ready to conditionally reset the integration process by intervals?
-        - Do we need to observe stationary data to determine our time intervals for resetting the integration?
-    - How long (distance) is the path we conducted our trials upon?
-        - we showed 100m of drift in our first trial, this is a lot and potentially double the distance we covered
-    - How well does our data match up with GPS coordinates (or GPS coordinates converted to meters of displacement)
-    - How can we scale a map for our data to be plotted upon (final product/demo considerations)
-    - Why is our initial and ending points not at 0G? Why are they constant and hovering above 0?
-    - Do we need to worry about offset removal?
-    - Will lowpass filtering help or corrupt our new data?
-        - Our lowpass filter was previously deprecated, but these new field tests indicate potential for improved data by way of filtering/denoising
+- Do we need to observe stationary data to determine our time intervals for resetting the integration?
+- How long (distance) is the path we conducted our trials upon?
+    - we showed 100m of drift in our first trial, this is a lot and potentially double the distance we covered
+- How well does our data match up with GPS coordinates (or GPS coordinates converted to meters of displacement)
+- How can we scale a map for our data to be plotted upon (final product/demo considerations)
+- Why is our initial and ending points not at 0G? Why are they constant and hovering above 0?
+- Do we need to worry about offset removal?
+- Will lowpass filtering help or corrupt our new data?
+    - Our lowpass filter was previously deprecated, but these new field tests indicate potential for improved data by way of filtering/denoising
         
 
 
