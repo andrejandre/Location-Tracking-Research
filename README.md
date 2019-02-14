@@ -179,4 +179,45 @@ To be thorough, below are a few screenshots highlighting the data that was edite
 
 It was determined in the latest meeting that the newtonian setup in lab is not optimal for data collection with the accelerometer, and that the test conducted on Feb 5 is enough proof that the device and algorithm are ready for new milestones.
 
-Our tests today involve walking in a straight line outdoors, accounting for X and Y axes data and zeroing out Z. We are attaching the accelerometer to a mobile device to log GPS and acceleration data simultaneously. 
+Our tests today involved walking in a straight line outdoors, accounting for X and Y axes data and zeroing out Z. We are attaching the accelerometer to a mobile device to log GPS and acceleration data simultaneously. 
+
+A total of 12 trials were performed, and the behavior observed in each of them was rather consistent. However, inspection with Anaconda's Spyder led me to the conclusion that the first trial was the best trial to showcase results with. The other trials had some anomalies in their acceleration that suggests we may need to re-evaluate how we conduct our field tests.
+
+Ultimately, in trial 1, the accelerations appear as:
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20accelerations.png)
+
+Note that the X acceleration resembles behaviour of a human walking at a steady pace. The device was oriented in +X propagation, so it is also good news that the Y acceleration hovers around 0 and contributes less to the integration (which will be shown below). 
+
+Here is the result of velocity after performing integration (remember that Z is zeroed out):
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20velocities.png)
+
+It is unrealistic that the velocity reaches up to and above 5 (m/s). This suggests that there is significant error propagation, and therefore a large drift in the final data. This means we need to be resetting the algorithm in intervals to prevent large error propagation and retain the validity of the displacement we are seeking. Below, is the location trajectory, 2d trajectory, and displacement.
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial1%20location%20trajectory.png)
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%202d%20trajectory.png)
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20displacement.png)
+
+Finally, it should be noted that the location in which this test was conducted was a pavement right next to the Goldwater Center at Arizona State University. For the record, this plot is not final and is a work in progress (the plot is not to scale, and is not oriented as such to map the location trajectory in 2D properly - this is another coding challenge to be tackled in the future). 
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20map%20-%20work%20in%20progress.png)
+
+Considerations for the next week:
+    - Should we filter the data in X or Y, or both?
+    - Are we ready to conditionally reset the integration process by intervals?
+        - Do we need to observe stationary data to determine our time intervals for resetting the integration?
+    - How long (distance) is the path we conducted our trials upon?
+        - we showed 100m of drift in our first trial, this is a lot and potentially double the distance we covered
+    - How well does our data match up with GPS coordinates (or GPS coordinates converted to meters of displacement)
+    - How can we scale a map for our data to be plotted upon (final product/demo considerations)
+    - Why is our initial and ending points not at 0G? Why are they constant and hovering above 0?
+    - Do we need to worry about offset removal?
+    - Will lowpass filtering help or corrupt our new data?
+        - Our lowpass filter was previously deprecated, but these new field tests indicate potential for improved data by way of filtering/denoising
+        
+
+
+
