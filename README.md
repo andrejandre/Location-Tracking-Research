@@ -218,6 +218,5 @@ Considerations for the next week:
 - Will lowpass filtering help or corrupt our new data?
     - Our lowpass filter was previously deprecated, but these new field tests indicate potential for improved data by way of filtering/denoising
         
-
-
+# Feb 15 2019
 
