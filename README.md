@@ -248,3 +248,16 @@ For now, the results achieved by eyeball and trial and error are shown below:
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/2d%20trajectory.png)
 
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/displacement.png)
+
+With further inspection I then determined that an offset removal of 0.12 in X and 0.03 in Y yielded even better results. I then also applied a lowpass filter to the initial and tail end of the waveforms, as well as to the whole waveform. Both of these filters are a lowpass filter that acts as a windowing average and aims to denoise the signals. The improved results are shown below:
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/denoised.png)
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/denoised%20with%20offset.png)
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/denoised%20velocities.png)
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/denoised%20trajectory.png)
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/denoised%20displacement.png)
+
