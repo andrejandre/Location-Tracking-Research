@@ -229,6 +229,22 @@ Tests were run on 3 stationary tests and I found that the offset values in each 
 
 | Test          |  X Offset     |  Y Offset     |  
 | ------------- | ------------- | ------------- | 
-| 1             | -0.0183406    | 0.089776315   |        
-| 2             | -0.0054300    | 0.044766461   |          
+| 1             | -0.0183406    | 0.0897763     |        
+| 2             | -0.0054300    | 0.0447664     |          
 | 3             | TBD           | TBD           |      
+
+Removing the offsets in our first trial's dataset using the values from Test 1, 2, and 3 do not yield results that are promising. They do not alter the data as such to show that a distance of 20 meters was walked in the +X direction. It seems that offset values are unique to the datasets and that we cannot rely on stationary tests to determine offset corrections.
+
+That being said, I performed analytics with the dataset of Trial 1 from Feb 13, and found that by applying an offset correction of -0.13 in X, and -0.02 in Y yielded a trajectory that showed roughly 20 meters of movement in +X, and a drift of about 5 meters in +Y. This is much more representative of reality, but since this was achieved by eyeballing an offset value it will require further inspection (it is possible that this is an inconclusive result). Moreover, the offset values to be used in new field tests will also vary, so a method to determine these values will need to be developed in the future.
+
+For now, the results achieved by eyeball and trial and error are shown below:
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20displacement.png)
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20displacement.png)
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20displacement.png)
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20displacement.png)
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20displacement.png)
