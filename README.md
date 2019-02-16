@@ -220,3 +220,15 @@ Considerations for the next week:
         
 # Feb 15 2019
 
+In the meeting today, it was determined that we need to sort out the following items:
+- determine the offset values from the accelerometer by stationary tests
+- remove the offset and ensure we generate a truthful trajectory
+- make comparisons to GPS data and validate our coordinate conversions
+
+Tests were run on 3 stationary tests and I found that the offset values in each axis vary. This means that using one stationary test is not a deterministic method for removing offsets from field tests. Since we are not tracking location in Z, we are ignoring Z offsets.
+
+| Test          |  X Offset     |  Y Offset     |  
+| ------------- | ------------- | ------------- | 
+| 1             | Content Cell  |               |        
+| 2             | Content Cell  |               |          
+| 3             | Content Cell  |               |      
