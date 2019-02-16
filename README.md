@@ -239,12 +239,12 @@ That being said, I performed analytics with the dataset of Trial 1 from Feb 13, 
 
 For now, the results achieved by eyeball and trial and error are shown below:
 
-![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20displacement.png)
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/accelerations.png)
 
-![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20displacement.png)
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/offsets%20removed.png)
 
-![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20displacement.png)
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/velocities.png)
 
-![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20displacement.png)
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/2d%20trajectory.png)
 
-![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2013%202019%20Data/trial%201%20displacement.png)
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/displacement.png)
