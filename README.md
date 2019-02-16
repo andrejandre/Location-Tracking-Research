@@ -177,7 +177,7 @@ To be thorough, below are a few screenshots highlighting the data that was edite
 
 # Feb 13 2019
 
-It was determined in the latest meeting that the newtonian setup in lab is not optimal for data collection with the accelerometer, and that the test conducted on Feb 5 is enough proof that the device and algorithm are ready for new milestones.
+It was determined in the latest meeting that the newtonian setup in lab is not optimal for data collection with the accelerometer, and that the test conducted on Feb 5 is enough proof that the device and algorithm are ready for new milestones. This is due to the fact that the track and cart used in the setup introduce a lot of random jitter that masks the acceleration we are seeking.
 
 Our tests today involved walking in a straight line outdoors, accounting for X and Y axes data and zeroing out Z. We are attaching the accelerometer to a mobile device to log GPS and acceleration data simultaneously. 
 
