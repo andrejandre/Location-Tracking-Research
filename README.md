@@ -1,5 +1,9 @@
 # MetaMotionR-Accelerometer-Research
 
+Table of Contents
+=================
+[Update 1](# Getting started)
+
 # Getting started
 
 This research project is focused on 3-axis data produced from a MetaMotionR device to explore the capabilities of accelerometer hardware. The motive for this research is to implement a data fusion application using 3-axis GPS data to couple together into a predictive Kalman filter. The device can be found at https://mbientlab.com/metamotionr/.
