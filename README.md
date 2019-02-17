@@ -289,7 +289,7 @@ With further inspection I then determined that an offset removal of 0.12 in X an
 
 Finally, attempts were made to compare the accelerometer results to that of the GPS data. Unfortunately the conversion of the results gave data in the form of change in distance at each iteration, and therefore are not plottable coordinates. Below is a preview of the format of the GPS data that has been provided. More work will have to be done to ensure we can develop plottable coordinates. 
 
-<img src="https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/Screen%20Shot%202019-02-16%20at%204.31.55%20PM.png" width="400" height="800">
+<img src="https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/Screen%20Shot%202019-02-16%20at%204.31.55%20PM.png" width="200" height="400">
 
 Goals for the next week:
 - obtain more GPS data and develop plottable coordinates
