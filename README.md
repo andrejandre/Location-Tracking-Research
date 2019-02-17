@@ -2,7 +2,7 @@
 
 Table of Contents
 =================
-[Update 1](# Getting started)
+* [Update 1](#Getting-started)
 
 # Getting started
 
