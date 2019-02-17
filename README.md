@@ -249,7 +249,33 @@ For now, the results achieved by eyeball and trial and error are shown below:
 
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/displacement.png)
 
-With further inspection I then determined that an offset removal of 0.12 in X and 0.03 in Y yielded even better results. I then also applied a lowpass filter to the initial and tail end of the waveforms, as well as to the whole waveform. Both of these filters are a lowpass filter that acts as a windowing average and aims to denoise the signals. The improved results are shown below:
+With further inspection I then determined that an offset removal of 0.12 in X and 0.03 in Y yielded even better results. I then also applied a lowpass filter to the initial and tail end of the waveforms, as well as to the whole waveform. Both of these filters are a lowpass filter that acts as a windowing average and aims to denoise the signals. The improved results are shown below, along with a snippet showcasing the filter (the algorithm can be viewed in the Feb 15 2019 Data folder):
+
+    #==============================================================================
+    # Butterworth Filtering X and Y Acceleration
+    #==============================================================================
+    N = 2 # Filter order
+    Wn = 0.001 # Cutoff frequency 0 < Wn < 1
+    B, A = signal.butter(N, Wn, output = 'ba')
+    xAcc[:2000] = signal.filtfilt(B, A, xAcc[:2000])
+    yAcc[:2000] = signal.filtfilt(B, A, yAcc[:2000])
+    xAcc[29000:] = signal.filtfilt(B, A, xAcc[29000:])
+    yAcc[29000:] = signal.filtfilt(B, A, yAcc[29000:])
+    N = 2
+    Wn = 0.01
+    B, A = signal.butter(N, Wn, output = 'ba')
+    xAcc = signal.filtfilt(B, A, xAcc)
+    yAcc = signal.filtfilt(B, A, yAcc)
+    plt.figure(figsize = (10, 6))
+    plt.plot(time, xAcc, linewidth = 1, color = 'r')
+    plt.plot(time, yAcc, linewidth = 1, color = 'g')
+    plt.title('X and Y Acceleration Denoised')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Acceleration (g)')
+    plt.xlim()
+    plt.ylim(-0.3, 0.3)
+    plt.grid()
+    plt.show()
 
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/denoised.png)
 
@@ -260,4 +286,13 @@ With further inspection I then determined that an offset removal of 0.12 in X an
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/denoised%20trajectory.png)
 
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/denoised%20displacement.png)
+
+Finally, attempts were made to compare the accelerometer results to that of the GPS data. Unfortunately the conversion of the results gave data in the form of change in distance at each iteration, and therefore are not plottable coordinates. Below is a preview of the format of the GPS data that has been provided. More work will have to be done to ensure we can develop plottable coordinates. 
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%2015%202019%20Data/Screen%20Shot%202019-02-16%20at%204.31.55%20PM.png)
+
+Goals for the next week:
+- obtain more GPS data and develop plottable coordinates
+- run comparisons to accelerometer results and GPS data
+- determine if more revisions need to be done on our signal processing or algorithm
 
