@@ -240,11 +240,11 @@ In the meeting today, it was determined that we need to sort out the following i
 
 Tests were run on 3 stationary tests and I found that the offset values in each axis vary. This means that using one stationary test is not a deterministic method for removing offsets from field tests. Since we are not tracking location in Z, we are ignoring Z offsets.
 
-| Test          |  X Offset     |  Y Offset     |  
-| ------------- | ------------- | ------------- | 
-| 1             | -0.0183406    | 0.0897763     |        
-| 2             | -0.0054300    | 0.0447664     |          
-| 3             | TBD           | TBD           |      
+| Test          | Data Rate     |  X Offset     |  Y Offset     |  
+| ------------- | ------------- | ------------- | ------------- |
+| 1             | 800 Hz        | -0.0183406    | 0.0897763     |        
+| 2             | 100 Hz        | -0.0054300    | 0.0447664     |          
+| 3             | 50 Hz         |               | TBD           |      
 
 Removing the offsets in our first trial's dataset using the values from Test 1, 2, and 3 do not yield results that are promising. They do not alter the data as such to show that a distance of 20 meters was walked in the +X direction. It seems that offset values are unique to the datasets and that we cannot rely on stationary tests to determine offset corrections.
 
@@ -308,4 +308,6 @@ Goals for the next week:
 - obtain more GPS data and develop plottable coordinates
 - run comparisons to accelerometer results and GPS data
 - determine if more revisions need to be done on our signal processing or algorithm
+
+
 
