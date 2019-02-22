@@ -13,7 +13,7 @@ Table of Contents
 * [Feb 13 2019](#Feb-13-2019)
 * [Feb 15 2019](#Feb-15-2019)
 
-# Getting started
+## Getting started
 
 This research project is focused on 3-axis data produced from a MetaMotionR device to explore the capabilities of accelerometer hardware. The motive for this research is to implement a data fusion application using 3-axis GPS data to couple together into a predictive Kalman filter. The device can be found at https://mbientlab.com/metamotionr/.
 
@@ -45,7 +45,7 @@ To get access to the data from a .csv file, the following routine can be used:
     time = allData.loc[:, 'elapsed (s)'].values
     timeMin = time / 60 # convert to minutes
     
-# Jan 29 2019
+## Jan 29 2019
 
 We ran tests with our newtonian setup on an even surface at 0 degrees offset. A mass of 70g was attached to the cart to ensure a theoretical force of 0.5g to be generated. We ran 2 tests in -X, 2 tests in -Y, and 1 test in +X. A test in -X, and in -Y failed due to erroneous communication between the device and iPhone. Tests were ran at 800Hz +- 4Gs. Additionally, our test in the +X direction was sliced and we focused on the window of data where the cart accelerated (so we deleted the portion of data after the crash) to observe any changes on accurac in 3D trajectories. In the velocity plots it is possible to see a moment of constant acceleration as the slope of the velocity curves suggest there may be a constant gravitational force.
 
@@ -82,7 +82,7 @@ The butterworth filter in question is:
 
 The same routine can be used for the Y and Z axis signals.
 
-# Feb 1 2019
+## Feb 1 2019
 
 We determined that we need to zoom in on the data where our accelerometer is actually undergoing newtonian motion in our setup. A lot of our datasets from Jan 29, 2019 showcase what happened in acceleration over a very long time interval. We need to cut out the 0.5s window of time where the action happened and apply our signal processing exactly to that section of data. This will require manipulating our algorithm and slicing up the raw data to generate the analytics we are after.
 
@@ -98,7 +98,7 @@ Update:
 - THE LOWPASS FILTER HAS BEEN REMOVED
     - the lowpass filter was preventing the expected behavior in velocity being shown, the filter has been deprecated and commented out for potential use later if necessary
     
-# Feb 2 2019
+## Feb 2 2019
 
 One more stationary test was conducted and the results show that drift occurs over time. This allows us to determine how long we are willing to utilize the accelerometer before resetting it with GPS data as we go forward. In addition, the test ran last week in the -X direction produced quality data, and so that was processed again today without a lowpass filter and the Z axis was zeroed as well. This showed that we had a small portion in time where acceleration was as expected, however the output in trajectory is confusing as it shows that no motion occured. Acceleration and velocity seem to behave as expected, but not the location trajectory.
 
@@ -127,7 +127,7 @@ To Review:
 - more newtonian tests with different masses (to test for accelerometer sensitivity)
 - come up with simple kalman filter examples https://filterpy.readthedocs.io/en/latest/kalman/KalmanFilter.html https://pykalman.github.io/ https://www.mathworks.com/help/control/ug/kalman-filtering.html
 
-# Feb 5 2019
+## Feb 5 2019
 
 Since the group could not meet in the lab today, I ran a quick test with the accelerometer at home. The goal was to try and prove that the device and algorithm could produce a result that showed the device moved in the +X direction as seen in reality. I swung the accelerometer approximately 0.5m (by eyeballing) in the +X direction while trying to minimize movement in Y and Z. The tests showed an initial +-2G spike, and then a realistic 2s interval where 0-0.5G forces were detected. The whole dataset was pumped through the algorithm and the trajectory showed a total movement in +X by about 0.5m. There was some movement in Y and Z, which was later ignored by setting the Y and Z axes to zero, and also slicing down to the interval in time where relevant motion occured. After, the location trajectory produced seemed accurate and showed that I moved the device by ~0.5m by swinging my arm. This confirms that it is possible that our newtonian setup isn't configured to succesfully collect data from the device for a number of hypotheses. Some of these are:
 
@@ -151,7 +151,7 @@ Below are results pertaining to the test proving truthful location tracking:
 
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%205%202019%20Data/location%20trajectory%20of%20sliced%20data.png)
 
-# Feb 7 2019
+## Feb 7 2019
 
 Seven tests were conducted today to collect more data for processing and analysis. The goal was to produce data under a controlled newtonian setup to prove truthful location tracking, as opposed to moving the device in my hand arbitrarily. Unfortunately, the data collected was not conclusive since there were no observable constant forces or sensible velocities derived from any of the datasets. In addition, the tests were slowed down by adding a 40g mass to the cart in most of the tests and this still did not result in analytics that make sense. 
 
@@ -188,7 +188,7 @@ To be thorough, below are a few screenshots highlighting the data that was edite
 
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/Feb%207%202019%20Data/sliced%20interval%20trajectory.png)
 
-# Feb 13 2019
+## Feb 13 2019
 
 It was determined in the latest meeting that the newtonian setup in lab is not optimal for data collection with the accelerometer, and that the test conducted on Feb 5 is enough proof that the device and algorithm are ready for new milestones. This is due to the fact that the track and cart used in the setup introduce a lot of random jitter that masks the acceleration we are seeking.
 
@@ -231,7 +231,7 @@ Considerations for the next week:
 - Will lowpass filtering help or corrupt our new data?
     - Our lowpass filter was previously deprecated, but these new field tests indicate potential for improved data by way of filtering/denoising
         
-# Feb 15 2019
+## Feb 15 2019
 
 In the meeting today, it was determined that we need to sort out the following items:
 - determine the offset values from the accelerometer by stationary tests
@@ -239,6 +239,8 @@ In the meeting today, it was determined that we need to sort out the following i
 - make comparisons to GPS data and validate our coordinate conversions
 
 Tests were run on 3 stationary tests and I found that the offset values in each axis vary. This means that using one stationary test is not a deterministic method for removing offsets from field tests. Since we are not tracking location in Z, we are ignoring Z offsets.
+
+#### Stationay Test Results (No Time Variance)
 
 | Test          | Data Rate     |  X Offset     |  Y Offset     |  
 | ------------- | ------------- | ------------- | ------------- |
@@ -309,5 +311,6 @@ Goals for the next week:
 - run comparisons to accelerometer results and GPS data
 - determine if more revisions need to be done on our signal processing or algorithm
 
+## Feb 22 2019
 
 
