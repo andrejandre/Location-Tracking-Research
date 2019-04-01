@@ -319,5 +319,20 @@ Goals for the next week:
 ## March 26 2019
 
 ## April 1 2019
+The goal of today was to determine a truthful offset value by conducting 10 trials using stationary tests. This was run through a quick script to handle a mean calculation and compile offsets from each trial. The table below highlights the significant results of these tests, and showcases the value being used for further testing. After this stationary offset analysis was performed, the offset values for X and Y were used again in the original algorithm to reproduce field tests with the confidence that new results are truthful.
 
+Note: all tests were normalized to 100s time intervals to remove time variance.
+
+| Trial         | Data Rate     |  X Offset     |  Y Offset     | 
+| ------------- | ------------- | ------------- | ------------- |
+| 1             | 100 Hz        |               |               |        
+| 2             | 100 Hz        |               |               |          
+| 3             | 100 Hz        |               |               | 
+| 4             | 100 Hz        |               |               | 
+| 5             | 100 Hz        |               |               | 
+| 6             | 100 Hz        |               |               | 
+| 7             | 100 Hz        |               |               | 
+| 8             | 100 Hz        |               |               | 
+| 9             | 100 Hz        |               |               | 
+| 10            | 100 Hz        |               |               | 
 
