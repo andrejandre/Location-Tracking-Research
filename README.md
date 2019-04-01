@@ -12,6 +12,9 @@ Table of Contents
 * [Feb 7 2019](#Feb-7-2019)
 * [Feb 13 2019](#Feb-13-2019)
 * [Feb 15 2019](#Feb-15-2019)
+* [Feb 22 2019](#Feb-22-2019)
+* [March 26 2019](#March-26-2019)
+* [April 1 2019] (#April-21-2019)
 
 ## Getting started
 
@@ -312,5 +315,9 @@ Goals for the next week:
 - determine if more revisions need to be done on our signal processing or algorithm
 
 ## Feb 22 2019
+
+## March 26 2019
+
+## April 1 2019
 
 
