@@ -325,7 +325,7 @@ Note: all tests were normalized to 100s time intervals to remove time variance.
 
 | Trial         | Data Rate     |  X Offset     |  Y Offset     | 
 | ------------- | ------------- | ------------- | ------------- |
-| 1             | 100 Hz        |               |               |        
+| 1             | 100 Hz        |0.01642661141804789|               |        
 | 2             | 100 Hz        |               |               |          
 | 3             | 100 Hz        |               |               | 
 | 4             | 100 Hz        |               |               | 
