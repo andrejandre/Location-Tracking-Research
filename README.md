@@ -336,10 +336,23 @@ Note: all tests were normalized to 100s time intervals to remove time variance.
 | 9             | 100 Hz        | 0.027462606013878187              |0.1206620406065279               | 
 | 10            | 100 Hz        |     0.022448598130841123           | 0.11983945260347129              | 
 
+To further validate these tests, the pdf files and screenshots can be viewed for each corresponding stationary trial to observe the signal characteristics (see the corresponding April 1 2019 data folder in the main branch).
+
 The table below shows the mean offset values for both domains derived from the 10 trials conducted above. These values are what are being used in all future data analytics.
 
 | Mean Offset X | Mean Offset Y |
 | ------------- | ------------- |
 | 0.02371321966479816 | 0.11895615670204282 |
+
+Now, the portion of code in the algorithm applying offset removal appears as follows:
+
+    #==============================================================================
+    # Removing offsets
+    # The values used to remove offset are determined by 10 stationary tests 
+    # which study the variance in X and Y offset and determine the mean offset 
+    # to apply to the signals for most truthful results
+    #==============================================================================
+    xAcc = xAcc - 0.02371321966479816
+    yAcc = yAcc - 0.11895615670204282
 
 
