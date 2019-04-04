@@ -359,3 +359,95 @@ Now, the portion of code in the algorithm applying offset removal appears as fol
     yAcc = yAcc - 0.11895615670204282
 
 
+The algorithm for data stitching:
+
+    #==============================================================================
+    # Conditional Data Stitching Sequence
+    # 1. Target first 5 seconds of acceleration data
+    # 2. Integrate for velocity
+    # 3. Integrate for displacement
+    # 4. Store data into target list
+    # 4. Target next 5 seconds of acceleration data
+    # 5. Repeat steps 2-4 until data is finished
+    #==============================================================================
+    targetX = []
+    xVel = []
+    yVel = []
+    xDis = []
+    yDis = []
+    indexTargets = []
+    # Rounding time values to enhance modulo division
+    for i in range(len(time)):
+        time[i] = round(time[i], 1)
+    # extracting 5 second interval indices
+    for idx, i in enumerate(time):
+        if (time[idx] % 5 == 0.):
+            #print('index:', idx, 'time:', time[idx])
+            indexTargets.append(idx)
+    # filtering targeted indices
+    for idx, i in enumerate(indexTargets):
+        try:
+            curr = indexTargets[idx]
+            nexti = indexTargets[idx + 1]
+            if curr == nexti - 1:
+                indexTargets.remove(indexTargets[idx + 1])
+        except IndexError:
+            pass
+    # filtering targeted indices
+    for idx, i in enumerate(indexTargets):
+        try:
+            curr = indexTargets[idx]
+            nexti = indexTargets[idx + 1]
+            if curr == nexti - 2:
+                indexTargets.remove(indexTargets[idx + 1])
+        except IndexError:
+            pass
+    # filtering targeted indices
+    for idx, i in enumerate(indexTargets):
+        try: 
+            curr = indexTargets[idx]
+            nexti = indexTargets[idx + 1]
+            if curr == nexti - 4:
+                indexTargets.remove(indexTargets[idx + 1])
+        except IndexError:
+            pass
+    # filtering targeted indices
+    for idx, i in enumerate(indexTargets):
+        try: 
+            curr = indexTargets[idx]
+            nexti = indexTargets[idx + 1]
+            if curr == nexti - 8:
+                indexTargets.remove(indexTargets[idx + 1])
+        except IndexError:
+            pass
+    # extracting index values and applying integration
+    for idx, i in enumerate(indexTargets):
+        try:
+            xVel.append(it.cumtrapz(xAcc[indexTargets[idx]:indexTargets[idx+1]]
+            , time[indexTargets[idx]:indexTargets[idx+1]]))
+            yVel.append(it.cumtrapz(yAcc[indexTargets[idx]:indexTargets[idx+1]]
+            , time[indexTargets[idx]:indexTargets[idx+1]]))
+        except IndexError:
+            pass
+    # extracting list of lists for X Velocity
+    flatVelX = []
+    for sublist in xVel:
+        for item in sublist:
+            flatVelX.append(item)
+    # extracting list of lists for Y Velocity
+    flatVelY = []
+    for sublist in yVel:
+        for item in sublist:
+            flatVelY.append(item)
+
+
+    #==============================================================================
+    # 
+    #==============================================================================
+    plt.plot(flatVelX)
+    plt.plot(flatVelY)
+    plt.title('Velocity with data stitching at 5s intervals')
+    plt.ylabel('m/s')
+    plt.xlabel('index of velocity vectors')
+    plt.ylim(-3, 3)
+    plt.show()
