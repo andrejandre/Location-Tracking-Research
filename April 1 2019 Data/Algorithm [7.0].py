@@ -15,7 +15,7 @@ from mpl_toolkits import mplot3d
 #==============================================================================
 # File under analysis.
 #==============================================================================
-filename = 'Stat1.csv'
+filename = 'Stat2.csv'
 
 #==============================================================================
 # Data preparation
@@ -222,7 +222,7 @@ plt.show()
 # Extracting GPS for Comparison
 #==============================================================================
 """
-gpsFile = 'Log4.xlsx'
+gpsFile = 'Square 3.xlsx'
 gpsData = pd.read_excel(gpsFile)
 xPos = gpsData.loc[:, 'X(m)']
 yPos = gpsData.loc[:, 'Y(M)']
@@ -243,8 +243,8 @@ plt.xlim()
 plt.ylim()
 plt.grid()
 plt.show()
-
 """
+
 
 
 

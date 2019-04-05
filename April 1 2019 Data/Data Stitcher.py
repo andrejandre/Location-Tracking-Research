@@ -9,7 +9,7 @@ from mpl_toolkits import mplot3d
 #==============================================================================
 # File under analysis.
 #==============================================================================
-filename = 'Stat3.csv'
+filename = 'Stat2.csv'
 
 #==============================================================================
 # Data preparation
@@ -151,6 +151,8 @@ xVel = []
 yVel = []
 xDis = []
 yDis = []
+xDisi = []
+yDisi = []
 indexTargets = []
 # Rounding time values to enhance modulo division
 for i in range(len(time)):
@@ -215,11 +217,34 @@ flatVelY = []
 for sublist in yVel:
     for item in sublist:
         flatVelY.append(item)
-
+# extracting index values and applying integration again
+padVal = len(time) - len(flatVelX)
+for i in range(padVal):
+    flatVelX.append(0)
+    flatVelY.append(0)
+for idx, i in enumerate(indexTargets):
+    try:
+        xDisi.append(it.cumtrapz(flatVelX[indexTargets[idx]:indexTargets[idx+1]]
+        , time[indexTargets[idx]:indexTargets[idx+1]]))
+        yDisi.append(it.cumtrapz(flatVelY[indexTargets[idx]:indexTargets[idx+1]]
+        , time[indexTargets[idx]:indexTargets[idx+1]]))
+    except IndexError:
+        pass
+# extracting list of lists for X displacement
+flatDisX = []
+for sublist in xDisi:
+    for item in sublist:
+        flatDisX.append(item)
+# extracting list of lists for Y displacement
+flatDisY = []
+for sublist in yDisi:
+    for item in sublist:
+        flatDisY.append(item)
 
 #==============================================================================
-# 
+# Plotting data stitched velocity
 #==============================================================================
+plt.figure(figsize = (10, 6))
 plt.plot(flatVelX)
 plt.plot(flatVelY)
 plt.title('Velocity with data stitching at 5s intervals')
@@ -228,41 +253,70 @@ plt.xlabel('index of velocity vectors')
 plt.ylim(-3, 3)
 plt.show()
         
-#xVel = it.cumtrapz(xAcc, time)
-#yVel = it.cumtrapz(yAcc, time)
-        
+#==============================================================================
+# Integrating flat velocity to generat displacement/position
+#==============================================================================
+xDis = it.cumtrapz(flatVelX)
+yDis = it.cumtrapz(flatVelY)
 
+plt.figure(figsize = (10, 6))
+plt.plot(xDis, label = 'X')
+plt.plot(yDis, label = 'Y')
+plt.title('Displacement without data stitching on velocity')
+plt.xlabel('index value')
+plt.ylabel('Distance (m)')
+plt.legend(loc = 'upper left')
+plt.grid()
+plt.show()
 
-    
+plt.figure(figsize = (10, 6))
+plt.plot(xDis, yDis)
+plt.title('2D path without stitching on velocity')
+plt.xlabel('x pos (m)')
+plt.ylabel('y pos (m)')
+plt.grid()
+plt.show()
 
+plt.figure(figsize = (10, 6))
+plt.plot(flatDisX, label = 'X')
+plt.plot(flatDisY, label = 'Y')
+plt.title('Displacement with data stitching on velocity')
+plt.xlabel('index value')
+plt.ylabel('Distance (m)')
+plt.legend(loc = 'upper left')
+plt.grid()
+plt.show()
 
+plt.figure(figsize = (10, 6))
+plt.plot(flatDisX, flatDisY)
+plt.title('2D path with data stitching on velocity')
+plt.xlabel('x pos (m)')
+plt.ylabel('y pos (m)')
+plt.grid()
+plt.show()
+"""
+#==============================================================================
+# Extracting GPS for Comparison
+#==============================================================================
+gpsFile = 'Square 3.xlsx'
+gpsData = pd.read_excel(gpsFile)
+xPos = gpsData.loc[:, 'X(m)']
+yPos = gpsData.loc[:, 'Y(M)']
+xPos = np.abs(xPos)
+yPos = np.abs(yPos)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#==============================================================================
+# GPS and accelerometer comparison plot
+#==============================================================================
+plt.figure(figsize = (10, 6))
+plt.plot(xPos, yPos, linewidth = 2, alpha = 1, label = 'gps. coord', color = 'black')
+plt.plot(flatDisX, flatDisY, linewidth = 2, alpha = 1, label = 'accel. coord', color = 'r')
+plt.title('GPS and Acceleration Trajectories compared [Cartesian]')
+plt.xlabel('Distance in X (m)')
+plt.ylabel('Distance in Y (m)')
+plt.legend(loc = 'upper left')
+plt.xlim()
+plt.ylim()
+plt.grid()
+plt.show()
+"""
