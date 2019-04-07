@@ -14,8 +14,8 @@ Table of Contents
 * [Feb 15 2019](#Feb-15-2019)
 * [Feb 22 2019](#Feb-22-2019)
 * [March 26 2019](#March-26-2019)
-* [March 29 2019](#March-29-2019)
 * [April 1 2019](#April-1-2019)
+* [April 8 2019)(#April-8-2019)
 
 ## Getting started
 
@@ -332,8 +332,6 @@ Analysis of one trial showed that the accelerometer roughly shows behaviour of t
 
 ![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/March%2026%202019%20Data/Final%20Trajectories.PNG)
 
-## March 29 2019
-
 ## April 1 2019
 The goal of today was to take a step back and determine a truthful offset value by conducting 10 trials using stationary tests. This was run through a quick script to handle a mean calculation and compile offsets from each trial. The table below highlights the significant results of these tests, and showcases the value being used for further testing. After this stationary offset analysis was performed, the offset values for X and Y were used again in the original algorithm to reproduce field tests with the confidence that new results are truthful.
 
@@ -376,7 +374,7 @@ Now, the portion of code in the algorithm applying offset removal appears as fol
     yAcc = yAcc - 0.11895615670204282
 
 
-The algorithm for data stitching (this is yet to be optimized and improved, for now it is a brute force solution to demonstrate the research):
+In addition to studying the mechanical offsets of the device, an innovative idea was developed to begin further improving upon the resutls of the accelerometer trajectories. The current understanding is that the accelerometer can reliably report about 5 seconds worth of meaningful location data, however the integration in the algorithm is sweeping the whole range of acceleration data and propagating massive amounts of exponential drift. To avoid this, an algorithm is being scripted to integrate the acceleration in 5 second intervals. The integration for velocity is reset every 5 seconds, and the integration for position/displacement will be reset every 5 seconds as well. The goal is to remove the long term propagation of drift error in the results and showcase a trajectory path that could potentially be better than GPS (especially if lowpass filtering is applied on the final data).
 
     #==============================================================================
     # Conditional Data Stitching Sequence
@@ -500,64 +498,6 @@ The algorithm for data stitching (this is yet to be optimized and improved, for 
     xDis = it.cumtrapz(flatVelX)
     yDis = it.cumtrapz(flatVelY)
 
-    plt.figure(figsize = (10, 6))
-    plt.plot(xDis, label = 'X')
-    plt.plot(yDis, label = 'Y')
-    plt.title('Displacement without data stitching on velocity')
-    plt.xlabel('index value')
-    plt.ylabel('Distance (m)')
-    plt.legend(loc = 'upper left')
-    plt.grid()
-    plt.show()
+This algorithm will be built upon, optimized, and refined going forward. It is still incomplete and more trials and analytics need to be done to validate results being obtained with the script.
 
-    plt.figure(figsize = (10, 6))
-    plt.plot(xDis, yDis)
-    plt.title('2D path without stitching on velocity')
-    plt.xlabel('x pos (m)')
-    plt.ylabel('y pos (m)')
-    plt.grid()
-    plt.show()
-
-    plt.figure(figsize = (10, 6))
-    plt.plot(flatDisX, label = 'X')
-    plt.plot(flatDisY, label = 'Y')
-    plt.title('Displacement with data stitching on velocity')
-    plt.xlabel('index value')
-    plt.ylabel('Distance (m)')
-    plt.legend(loc = 'upper left')
-    plt.grid()
-    plt.show()
-
-    plt.figure(figsize = (10, 6))
-    plt.plot(flatDisX, flatDisY)
-    plt.title('2D path with data stitching on velocity')
-    plt.xlabel('x pos (m)')
-    plt.ylabel('y pos (m)')
-    plt.grid()
-    plt.show()
-    """
-    #==============================================================================
-    # Extracting GPS for Comparison
-    #==============================================================================
-    gpsFile = 'Square 3.xlsx'
-    gpsData = pd.read_excel(gpsFile)
-    xPos = gpsData.loc[:, 'X(m)']
-    yPos = gpsData.loc[:, 'Y(M)']
-    xPos = np.abs(xPos)
-    yPos = np.abs(yPos)
-
-    #==============================================================================
-    # GPS and accelerometer comparison plot
-    #==============================================================================
-    plt.figure(figsize = (10, 6))
-    plt.plot(xPos, yPos, linewidth = 2, alpha = 1, label = 'gps. coord', color = 'black')
-    plt.plot(flatDisX, flatDisY, linewidth = 2, alpha = 1, label = 'accel. coord', color = 'r')
-    plt.title('GPS and Acceleration Trajectories compared [Cartesian]')
-    plt.xlabel('Distance in X (m)')
-    plt.ylabel('Distance in Y (m)')
-    plt.legend(loc = 'upper left')
-    plt.xlim()
-    plt.ylim()
-    plt.grid()
-    plt.show()
-    """
+## April 8 2019
