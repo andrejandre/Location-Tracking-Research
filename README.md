@@ -315,14 +315,27 @@ Goals for the next week:
 - run comparisons to accelerometer results and GPS data
 - determine if more revisions need to be done on our signal processing or algorithm
 
-## Feb 22 2019
-
 ## March 26 2019
+Field tests were conducted today where the accelerometer device logs data along with a GPS mobile application for the purpose of cross-checking trajectory results. The GPS application's repository is available for further investigation at:
+
+https://github.com/andrejandre/Custom-GPS-Logger
+
+The GPS mobile application allowed for GPS coordinates to be logged at a custom frequency. Later, the .csv logs generated from the application were taken into Excel and transformed into displacement and position data via Polar and Cartesian relationships.
+
+Analysis of one trial showed that the accelerometer roughly shows behaviour of the expected trajectory, but is still drfting far away from the GPS. Below are plots showcasing proof of this. Further analytics are included in the corresponding March 26 2019 Data folder.
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/March%2026%202019%20Data/X%20and%20Y%20Accel.%20Denoised.PNG)
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/March%2026%202019%20Data/X%20and%20Y%20Accel.%20Offset%20Removeed.PNG)
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/March%2026%202019%20Data/X%20and%20Y%20Velocities.PNG)
+
+![alt text](https://github.com/andrejandre/MetaMotionR-Accelerometer-Research/blob/master/March%2026%202019%20Data/Final%20Trajectories.PNG)
 
 ## March 29 2019
 
 ## April 1 2019
-The goal of today was to determine a truthful offset value by conducting 10 trials using stationary tests. This was run through a quick script to handle a mean calculation and compile offsets from each trial. The table below highlights the significant results of these tests, and showcases the value being used for further testing. After this stationary offset analysis was performed, the offset values for X and Y were used again in the original algorithm to reproduce field tests with the confidence that new results are truthful.
+The goal of today was to take a step back and determine a truthful offset value by conducting 10 trials using stationary tests. This was run through a quick script to handle a mean calculation and compile offsets from each trial. The table below highlights the significant results of these tests, and showcases the value being used for further testing. After this stationary offset analysis was performed, the offset values for X and Y were used again in the original algorithm to reproduce field tests with the confidence that new results are truthful.
 
 Note: all tests were normalized to 100s time intervals to remove time variance.
 
@@ -347,6 +360,10 @@ The table below shows the mean offset values for both domains derived from the 1
 | ------------- | ------------- |
 | 0.02371321966479816 | 0.11895615670204282 |
 
+asdasdasd
+asdasdasd
+asdasdasd
+
 Now, the portion of code in the algorithm applying offset removal appears as follows:
 
     #==============================================================================
@@ -359,7 +376,7 @@ Now, the portion of code in the algorithm applying offset removal appears as fol
     yAcc = yAcc - 0.11895615670204282
 
 
-The algorithm for data stitching:
+The algorithm for data stitching (this is yet to be optimized and improved, for now it is a brute force solution to demonstrate the research):
 
     #==============================================================================
     # Conditional Data Stitching Sequence
