@@ -1,7 +1,5 @@
 # MetaMotionR-Accelerometer-Research
 
-This repository is maintained and updated by Andre Unsal. It is covered under the MIT License. Any inquiries can be directed to andreunsal@gmail.com. I am also accessible at https://www.linkedin.com/in/andreunsal/.
-
 Table of Contents
 =================
 * [Getting Started](#Getting-started)
